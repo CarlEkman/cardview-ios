@@ -8,6 +8,9 @@ class ViewController: UIViewController {
 
     private var isPresenting: Bool = false
 
+
+    // MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,6 +20,9 @@ class ViewController: UIViewController {
         view.addSubview(testButton)
         testButton.constrainTo(centerIn: view)
     }
+
+
+    // MARK: - Subviews
 
     private lazy var testButton: UIButton = {
         let button: UIButton  = UIButton(withAutolayout: true)
@@ -45,7 +51,7 @@ class ViewController: UIViewController {
     }()
 
 
-    // MARK: - User Interaction
+    // MARK: - Interaction
 
     public func present(cardView: CardView) {
         guard !self.isPresenting else { return }
@@ -94,23 +100,24 @@ class ViewController: UIViewController {
     @objc open func didTapFadeView(sender: UIView!) {
         self.dismiss(cardView: self.cardView)
     }
-
 }
 
+
+// MARK: - Card View Delegate
 
 extension ViewController: CardViewDelegate {
 
     func didThrow(cardView: CardView) {
         self.dismiss(cardView: cardView)
     }
-
 }
 
+
+// MARK: - UI Strings
 
 fileprivate struct Text {
 
     static let buttonTitle = "Tap me"
     static let cardTitle = "Card view"
     static let cardText = "This is a throwable modal view. Use it as an alternative to alert views."
-    
 }

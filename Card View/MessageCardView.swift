@@ -86,5 +86,4 @@ class MessageCardView: CardView {
     override open class var requiresConstraintBasedLayout: Bool {
         get { return true }
     }
-
 }

@@ -7,22 +7,22 @@ import UIKit
 struct Color {
 
     struct View {
-        static let plain = UIColor(colorLiteralRed: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0)
-        static let light = UIColor(colorLiteralRed: 246/255.0, green: 246/255.0, blue: 246/255.0, alpha: 1.0)
-        static let medium = UIColor(colorLiteralRed: 239/255.0, green: 239/255.0, blue: 244/255.0, alpha: 1.0)
-        static let fade = UIColor(colorLiteralRed: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.2)
+        static let plain =  UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0)
+        static let light =  UIColor(red: 246/255.0, green: 246/255.0, blue: 246/255.0, alpha: 1.0)
+        static let medium = UIColor(red: 239/255.0, green: 239/255.0, blue: 244/255.0, alpha: 1.0)
+        static let fade =   UIColor(red: 0/255.0,   green: 0/255.0,   blue: 0/255.0,   alpha: 0.2)
     }
 
     struct Text {
-        static let main = UIColor(colorLiteralRed: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1.0)
-        static let medium = UIColor(colorLiteralRed: 164/255.0, green: 170/255.0, blue: 179/255.0, alpha: 1.0)
-        static let light = UIColor(colorLiteralRed: 199/255.0, green: 199/255.0, blue: 205/255.0, alpha: 1.0)
+        static let main =   UIColor(red: 0/255.0,   green: 0/255.0,   blue: 0/255.0,   alpha: 1.0)
+        static let medium = UIColor(red: 164/255.0, green: 170/255.0, blue: 179/255.0, alpha: 1.0)
+        static let light =  UIColor(red: 199/255.0, green: 199/255.0, blue: 205/255.0, alpha: 1.0)
     }
 
     struct Tint {
-        static let main = UIColor(colorLiteralRed: 52/255.0, green: 152/255.0, blue: 219/255.0, alpha: 1.0)
-        static let disabled = UIColor(colorLiteralRed: 137/255.0, green: 178/255.0, blue: 205/255.0, alpha: 1.0)
-        static let shadow = UIColor(colorLiteralRed: 38/255.0, green: 42/255.0, blue: 43/255.0, alpha: 1.0)
+        static let main =     UIColor(red: 52/255.0,  green: 152/255.0, blue: 219/255.0, alpha: 1.0)
+        static let disabled = UIColor(red: 137/255.0, green: 178/255.0, blue: 205/255.0, alpha: 1.0)
+        static let shadow =   UIColor(red: 38/255.0,  green: 42/255.0,  blue: 43/255.0,  alpha: 1.0)
     }
     
 }

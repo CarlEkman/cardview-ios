@@ -82,11 +82,10 @@ public class CardView: UIView, UIGestureRecognizerDelegate {
         self.constrainTo(centerIn: container)
         let leading = self.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: Shape.Padding.large.cgFloat)
         let trailing = self.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -Shape.Padding.large.cgFloat)
-        leading.priority = 750
-        trailing.priority = 750
+        leading.priority = UILayoutPriority(rawValue: 750)
+        trailing.priority = UILayoutPriority(rawValue: 750)
         leading.isActive = true
         trailing.isActive = true
-
 
         self.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
         UIView.animate(withDuration: Time.Duration.medium, animations: {
@@ -96,7 +95,6 @@ public class CardView: UIView, UIGestureRecognizerDelegate {
     }
 
     public func dismiss() {
-
         UIView.animate(withDuration: Time.Duration.medium, animations: { 
             self.alpha = 0
         }) { (finished: Bool) in
@@ -113,9 +111,7 @@ public class CardView: UIView, UIGestureRecognizerDelegate {
     }
 
     @objc private func viewWasPressed(sender: UILongPressGestureRecognizer) {
-
         switch sender.state {
-
         case .began:
             UIView.animate(withDuration: Time.Duration.short, animations: {
                 self.transform = CGAffineTransform(scaleX: 1.02, y: 1.02);
@@ -125,7 +121,7 @@ public class CardView: UIView, UIGestureRecognizerDelegate {
             fallthrough
 
         case .ended:
-            if (!self.isDraggingCard) {
+            if !self.isDraggingCard {
                 UIView.animate(withDuration: Time.Duration.short, animations: {
                     self.transform = CGAffineTransform.identity
                 })
@@ -137,7 +133,6 @@ public class CardView: UIView, UIGestureRecognizerDelegate {
     }
 
     @objc private func viewDidPan(sender: UIPanGestureRecognizer) {
-
         guard let superview = self.container else { return }
         guard let animator = self.animator else { return }
 
@@ -146,15 +141,13 @@ public class CardView: UIView, UIGestureRecognizerDelegate {
         let centerOffset = UIOffset(horizontal: locationInView.x - self.bounds.midX, vertical: locationInView.y - self.bounds.midY)
 
         switch sender.state {
-
         case .began:
 
             self.isDraggingCard = true
-            
             self.originalCenter = self.center
             self.originalBounds = self.bounds
 
-            attachmentBehavior = UIAttachmentBehavior(item: self, offsetFromCenter: centerOffset, attachedToAnchor: locationInSuperview)
+            self.attachmentBehavior = UIAttachmentBehavior(item: self, offsetFromCenter: centerOffset, attachedToAnchor: locationInSuperview)
             animator.removeAllBehaviors()
             animator.addBehavior(attachmentBehavior)
 
@@ -173,9 +166,9 @@ public class CardView: UIView, UIGestureRecognizerDelegate {
 
                 let direction = CGVector(dx: velocity.x / 10, dy: velocity.y / 10)
 
-                pushBehavior = UIPushBehavior(items: [self], mode: .instantaneous)
-                pushBehavior.pushDirection = direction
-                pushBehavior.magnitude = magnitude / throwingVelocityPadding
+                self.pushBehavior = UIPushBehavior(items: [self], mode: .instantaneous)
+                self.pushBehavior.pushDirection = direction
+                self.pushBehavior.magnitude = magnitude / throwingVelocityPadding
                 animator.addBehavior(pushBehavior)
 
                 // Calculate angular momentum for throw.
@@ -184,16 +177,14 @@ public class CardView: UIView, UIGestureRecognizerDelegate {
                 let length = sqrt(radius.dx * radius.dx + radius.dy * radius.dy)
                 let dampening = CGFloat(20)
 
-                itemBehavior = UIDynamicItemBehavior(items: [self])
-                itemBehavior.friction = 0.2
-                itemBehavior.allowsRotation = true
-                itemBehavior.addAngularVelocity((angle * length) / dampening, for: self)
-                animator.addBehavior(itemBehavior)
+                self.itemBehavior = UIDynamicItemBehavior(items: [self])
+                self.itemBehavior.friction = 0.2
+                self.itemBehavior.allowsRotation = true
+                self.itemBehavior.addAngularVelocity((angle * length) / dampening, for: self)
+                animator.addBehavior(self.itemBehavior)
 
                 DispatchQueue.main.asyncAfter(deadline: .now() + Time.Duration.medium, execute: {
-                    if let delegate = self.delegate {
-                        delegate.didThrow(cardView: self)
-                    }
+                    self.delegate?.didThrow(cardView: self)
                 })
 
             } else {
@@ -206,10 +197,8 @@ public class CardView: UIView, UIGestureRecognizerDelegate {
 
         default:
 
-            attachmentBehavior.anchorPoint = locationInSuperview
+            self.attachmentBehavior.anchorPoint = locationInSuperview
             self.latestCenter = self.center
-
         }
     }
-
 }
