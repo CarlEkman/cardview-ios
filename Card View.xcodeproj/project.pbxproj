@@ -17,6 +17,8 @@
 		994965BB1E741AC000645EA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 994965BA1E741AC000645EA9 /* LaunchScreen.storyboard */; };
 		994965BF1E74645100645EA9 /* MessageCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994965BE1E74645100645EA9 /* MessageCardView.swift */; };
 		99DF0FE31E74949600C7F068 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DF0FE21E74949600C7F068 /* ViewController.swift */; };
+		C37258262189BC9E00658F07 /* UIViewController+CardViewPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37258252189BC9E00658F07 /* UIViewController+CardViewPresenting.swift */; };
+		C37258282189D90D00658F07 /* UIView+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37258272189D90D00658F07 /* UIView+Gestures.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		994965BA1E741AC000645EA9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		994965BE1E74645100645EA9 /* MessageCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCardView.swift; sourceTree = "<group>"; };
 		99DF0FE21E74949600C7F068 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C37258252189BC9E00658F07 /* UIViewController+CardViewPresenting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+CardViewPresenting.swift"; sourceTree = "<group>"; };
+		C37258272189D90D00658F07 /* UIView+Gestures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gestures.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,8 @@
 				990958091E7306F000FC4166 /* UIView+Autolayout.swift */,
 				9909580A1E7306F000FC4166 /* UIView+RoundedCorners.swift */,
 				9909580B1E7306F000FC4166 /* UIView+Shadows.swift */,
+				C37258272189D90D00658F07 /* UIView+Gestures.swift */,
+				C37258252189BC9E00658F07 /* UIViewController+CardViewPresenting.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -168,11 +174,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C37258262189BC9E00658F07 /* UIViewController+CardViewPresenting.swift in Sources */,
 				990958061E73060900FC4166 /* CardView.swift in Sources */,
 				99DF0FE31E74949600C7F068 /* ViewController.swift in Sources */,
 				9909580C1E7306F000FC4166 /* UIView+Autolayout.swift in Sources */,
 				9909580E1E7306F000FC4166 /* UIView+Shadows.swift in Sources */,
 				994965BF1E74645100645EA9 /* MessageCardView.swift in Sources */,
+				C37258282189D90D00658F07 /* UIView+Gestures.swift in Sources */,
 				9909580D1E7306F000FC4166 /* UIView+RoundedCorners.swift in Sources */,
 				990957F41E73056400FC4166 /* AppDelegate.swift in Sources */,
 				990958081E73066E00FC4166 /* UIConstants.swift in Sources */,

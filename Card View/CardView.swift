@@ -4,14 +4,8 @@
 
 import UIKit
 
-public protocol CardViewDelegate {
-
-    func didThrow(cardView: CardView)
-}
-
 public class CardView: UIView, UIGestureRecognizerDelegate {
 
-    private var delegate: CardViewDelegate?
     private var animator: UIDynamicAnimator?
     private var container: UIView?
 
@@ -31,6 +25,9 @@ public class CardView: UIView, UIGestureRecognizerDelegate {
 
     private var isDraggingCard: Bool = false
     private var didSetConstraints: Bool = false
+
+    public weak var associatedFadeView: UIView?
+    private var didThrowClosure: (() -> ())?
 
 
     // MARK: - Initializers
@@ -68,10 +65,10 @@ public class CardView: UIView, UIGestureRecognizerDelegate {
 
     // MARK: - Public
 
-    public func present(inView container: UIView!, delegate: CardViewDelegate) {
+    public func present(inView container: UIView!, didThrow: @escaping () -> ()) {
         self.container = container
         self.animator = UIDynamicAnimator(referenceView: container)
-        self.delegate = delegate
+        self.didThrowClosure = didThrow
 
         container.addSubview(self)
         self.widthAnchor.constraint(greaterThanOrEqualToConstant: self.minimumSize.width).isActive = true
@@ -184,7 +181,7 @@ public class CardView: UIView, UIGestureRecognizerDelegate {
                 animator.addBehavior(self.itemBehavior)
 
                 DispatchQueue.main.asyncAfter(deadline: .now() + Time.Duration.medium, execute: {
-                    self.delegate?.didThrow(cardView: self)
+                    self.didThrowClosure?()
                 })
 
             } else {
