@@ -1,11 +1,12 @@
 //
-//  Copyright © 2017 Carl Ekman. All rights reserved.
+//  Copyright © 2018 Carl Ekman. All rights reserved.
 //
 
 import UIKit
 
-public class MessageCardView: CardView {
+public class ImageCardView: CardView {
 
+    private var image: UIImage?
     private var title: String?
     private var message: String?
 
@@ -14,17 +15,26 @@ public class MessageCardView: CardView {
 
     // MARK: - Initializer
 
-    convenience public init(title: String?, message: String?) {
+    convenience init(image: UIImage?, title: String?, message: String?) {
         self.init()
 
         self.isAutolayoutView = true
 
+        self.image = image
         self.title = title
         self.message = message
     }
 
 
     // MARK: - Subviews
+
+    private lazy var imageView: UIImageView = {
+        let imageView = UIImageView(image: image)
+        imageView.isAutolayoutView = true
+        imageView.contentMode = .scaleAspectFit
+
+        return imageView
+    }()
 
     private lazy var titleLabel: UILabel = {
         let label: UILabel = UILabel(withAutolayout: true)
@@ -50,13 +60,6 @@ public class MessageCardView: CardView {
         return label
     }()
 
-    private lazy var blurView: UIVisualEffectView = {
-        let effectView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
-        effectView.isAutolayoutView = true
-
-        return effectView
-    }()
-
 
     // MARK: - Autolayout
 
@@ -69,8 +72,13 @@ public class MessageCardView: CardView {
             let medium = Shape.Padding.medium.cgFloat
             let small = Shape.Padding.small.cgFloat
 
+            self.addSubview(self.imageView)
+            self.imageView.topAnchor.constraint(equalTo: self.topAnchor, constant: medium).isActive = true
+            self.imageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: medium).isActive = true
+            self.imageView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -medium).isActive = true
+
             self.addSubview(self.titleLabel)
-            self.titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: medium).isActive = true
+            self.titleLabel.topAnchor.constraint(equalTo: self.imageView.bottomAnchor, constant: small).isActive = true
             self.titleLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: medium).isActive = true
             self.titleLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -medium).isActive = true
 
@@ -79,6 +87,8 @@ public class MessageCardView: CardView {
             self.messageLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: medium).isActive = true
             self.messageLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -medium).isActive = true
             self.messageLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -medium).isActive = true
+            
+
         }
     }
 

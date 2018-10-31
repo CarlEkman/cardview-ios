@@ -19,6 +19,7 @@
 		99DF0FE31E74949600C7F068 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DF0FE21E74949600C7F068 /* ViewController.swift */; };
 		C37258262189BC9E00658F07 /* UIViewController+CardViewPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37258252189BC9E00658F07 /* UIViewController+CardViewPresenting.swift */; };
 		C37258282189D90D00658F07 /* UIView+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37258272189D90D00658F07 /* UIView+Gestures.swift */; };
+		C372582C2189DEB500658F07 /* ImageCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C372582B2189DEB500658F07 /* ImageCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		99DF0FE21E74949600C7F068 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C37258252189BC9E00658F07 /* UIViewController+CardViewPresenting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+CardViewPresenting.swift"; sourceTree = "<group>"; };
 		C37258272189D90D00658F07 /* UIView+Gestures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gestures.swift"; sourceTree = "<group>"; };
+		C372582B2189DEB500658F07 /* ImageCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			children = (
 				990958051E73060900FC4166 /* CardView.swift */,
 				994965BE1E74645100645EA9 /* MessageCardView.swift */,
+				C372582B2189DEB500658F07 /* ImageCardView.swift */,
 			);
 			name = "Card Views";
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 				9909580D1E7306F000FC4166 /* UIView+RoundedCorners.swift in Sources */,
 				990957F41E73056400FC4166 /* AppDelegate.swift in Sources */,
 				990958081E73066E00FC4166 /* UIConstants.swift in Sources */,
+				C372582C2189DEB500658F07 /* ImageCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
