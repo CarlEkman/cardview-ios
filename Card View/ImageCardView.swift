@@ -17,12 +17,10 @@ public class ImageCardView: CardView {
 
     convenience init(image: UIImage?, title: String?, message: String?) {
         self.init()
-
-        self.isAutolayoutView = true
-
         self.image = image
         self.title = title
         self.message = message
+        self.isAutolayoutView = true
     }
 
 
@@ -43,7 +41,7 @@ public class ImageCardView: CardView {
         label.lineBreakMode = .byTruncatingTail
         label.textColor = Color.Text.main
         label.font = Font.Title.medium
-        label.text = self.title
+        label.text = title
 
         return label
     }()
@@ -55,7 +53,7 @@ public class ImageCardView: CardView {
         label.lineBreakMode = .byTruncatingTail
         label.textColor = Color.Text.main
         label.font = Font.Body.medium
-        label.text = self.message
+        label.text = message
 
         return label
     }()
@@ -66,27 +64,27 @@ public class ImageCardView: CardView {
     public override func updateConstraints() {
         super.updateConstraints()
 
-        if (!self.didSetConstraints) {
-            self.didSetConstraints = true
+        if (!didSetConstraints) {
+            didSetConstraints = true
 
             let medium = Shape.Padding.medium.cgFloat
             let small = Shape.Padding.small.cgFloat
 
-            self.addSubview(self.imageView)
-            self.imageView.topAnchor.constraint(equalTo: self.topAnchor, constant: medium).isActive = true
-            self.imageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: medium).isActive = true
-            self.imageView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -medium).isActive = true
+            addSubview(imageView)
+            imageView.topAnchor.constraint(equalTo: topAnchor, constant: medium).isActive = true
+            imageView.leftAnchor.constraint(equalTo: leftAnchor, constant: medium).isActive = true
+            imageView.rightAnchor.constraint(equalTo: rightAnchor, constant: -medium).isActive = true
 
-            self.addSubview(self.titleLabel)
-            self.titleLabel.topAnchor.constraint(equalTo: self.imageView.bottomAnchor, constant: small).isActive = true
-            self.titleLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: medium).isActive = true
-            self.titleLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -medium).isActive = true
+            addSubview(titleLabel)
+            titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: small).isActive = true
+            titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: medium).isActive = true
+            titleLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -medium).isActive = true
 
-            self.addSubview(self.messageLabel)
-            self.messageLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: small).isActive = true
-            self.messageLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: medium).isActive = true
-            self.messageLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -medium).isActive = true
-            self.messageLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -medium).isActive = true
+            addSubview(messageLabel)
+            messageLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: small).isActive = true
+            messageLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: medium).isActive = true
+            messageLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -medium).isActive = true
+            messageLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -medium).isActive = true
             
 
         }

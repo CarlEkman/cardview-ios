@@ -20,11 +20,10 @@ extension UIView {
 
         switch style {
         case .dropshadow:
-            self.layer.shadowColor = Color.Tint.shadow.cgColor
-            self.layer.shadowOffset = CGSize(width: 0, height: 2)
-            self.layer.shadowOpacity = Effect.Shadow.opacity.float
-            self.layer.shadowRadius = Effect.Shadow.radius.cgFloat
-            break
+            layer.shadowColor = Color.Tint.shadow.cgColor
+            layer.shadowOffset = CGSize(width: 0, height: 2)
+            layer.shadowOpacity = Effect.Shadow.opacity.float
+            layer.shadowRadius = Effect.Shadow.radius.cgFloat
 
         default:
             break

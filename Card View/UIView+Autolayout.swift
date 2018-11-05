@@ -43,18 +43,18 @@ extension UIView {
      Adds constraints for centering X and Y to given view.
      */
     public func constrainTo(centerIn view: UIView) {
-        self.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        self.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
 
     /**
      Adds constraints for aligning top, bottom, leading and trailing to given view.
      */
     public func constrainTo(cover view: UIView) {
-        self.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        self.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        self.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        self.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
 
 }

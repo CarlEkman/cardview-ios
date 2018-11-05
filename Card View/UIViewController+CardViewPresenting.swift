@@ -13,7 +13,7 @@ public protocol CardViewPresenting {
 public extension CardViewPresenting where Self: UIViewController {
 
     func present(cardView: CardView) {
-        self.addFadeView(for: cardView)
+        addFadeView(for: cardView)
         cardView.present(inView: self.view) {
             self.dismiss(cardView: cardView)
         }
@@ -21,7 +21,7 @@ public extension CardViewPresenting where Self: UIViewController {
 
     func dismiss(cardView: CardView) {
         cardView.dismiss()
-        self.removeFadeView(for: cardView)
+        removeFadeView(for: cardView)
     }
 
     private func generateFadeView(for cardView: CardView) -> UIView {

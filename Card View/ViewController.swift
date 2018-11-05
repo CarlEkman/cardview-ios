@@ -29,7 +29,7 @@ class ViewController: UIViewController, CardViewPresenting {
         let cardView = ImageCardView(image: UIImage(named: .imageName),
                                      title: .cardTitle,
                                      message: .cardText)
-        self.present(cardView: cardView)
+        present(cardView: cardView)
     }
 }
 
